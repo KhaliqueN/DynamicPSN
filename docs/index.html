@@ -16,11 +16,11 @@
 
 <!-- <a class="edit-page" href="https://github.com//blob/master/docs/src/index.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Tutorial</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Tutorial-1" href="#Tutorial-1">Tutorial</a></h1> -->
 <!-- create dynamic protein structure networks (PSNs), compute dynamic graphlets-based features of dynamic PSNs, and perform protein structural classfication using -->
-<h1><a class="nav-anchor" id="I.-Introduction-1" href="#I.-Introduction-1">I. Introduction</a></h1><p>DynaP[1] is our software tool to create dynamic protein structure networks (PSNs), extract dynamic graphlet-based features of the dynamic PSNs, and perform protein structural classification. The following sections contain a tutorial on how to use DynaP.</p><p><a href="index.html#secm2-1">Section II</a> contains installation instructions. <a href="index.html#secm3-1">Section III</a> describes how to run the software. <a href="index.html#secm4-1">Section IV</a> describes how to create dynamic PSNs. <a href="index.html#secm5-1">Section V</a> describes how to compute dynamic graphlet feature of a dynamic PSN. <a href="index.html#secm6-1">Section VI</a> describes how to perform protein structural classification.</p><p>[1] Dynamic networks improve protein fold recognition, K. Newaz, J. Piland, and T. Milenković (2021), under review.</p>
+<h1><a class="nav-anchor" id="I.-Introduction-1" href="#I.-Introduction-1">I. Introduction</a></h1><p>DynaP[1] is our software tool to create dynamic protein structure networks (PSNs), extract dynamic graphlet-based features of the dynamic PSNs, and perform protein structural classification. The following sections contain a tutorial on how to use DynaP.</p><p><a href="index.html#secm2-1">Section II</a> contains installation instructions. <a href="index.html#secm3-1">Section III</a> describes how to run the software. <a href="index.html#secm4-1">Section IV</a> describes how to create dynamic PSNs. <a href="index.html#secm5-1">Section V</a> describes how to create dynamic PSNs and compute their dynamic graphlet features. <a href="index.html#secm6-1">Section VI</a> describes how to create dynamic PSNs, compute their dynamic graphlets features, and perform protein structural classification.</p><p>[1] Dynamic networks improve protein structural classification, K. Newaz, J. Piland, and T. Milenković (2021), under review.</p>
 
 <h1><a class="nav-anchor" id="secm2-1" href="#secm2-1">II. Installation</a></h1><p>DynaP can be run in three different modes: 1) Mode 1 to just create dynamic PSNs, 2) Mode 2 to create dynamic PSNs and extract dynamic graphlet features from dynamic PSNs, and 3) Mode 3 to create dynamic PSNs, extract dynamic graphlet features of dynamic PSNs, and perform protein structural classification. <strong>DynaP can be run on Linux, Windows, and Mac OS. For optimal results, run DynaP on an Ubuntu-based linux system.</strong> </p>
 
-<p><strong> Mode 1. </strong>To be able to perform Mode 1, the user needs to install <a href="https://www.r-project.org/"> R version 3.4.4 </a> or higher (on an ubuntu-based linux system, this can be done by writing <code>sudo apt install r-base</code> on the command terminal), along with the following R packages: 'shiny' (version 1.6.0 has been tested), 'shinyjs' (version 2.0.0 has been tested), 'tools' (version 3.4.4 has been tested), 'data.table' (version 1.13.6 has been tested), 'stringr' (version 1.4.0 has been tested), and 'igraph' (version 1.2.6 has been tested). To install these packages, follow these steps. Run R in the command terminal. Then, to install for example 'data.table' package, write <code>install.packages('data.table')</code>  and follow the instructions.</p>
+<p><strong> Mode 1. </strong>To be able to perform Mode 1, the user needs to install <a href="https://www.r-project.org/"> R version 3.4.4 </a> or higher (on an ubuntu-based linux system, this can be done by writing <code>sudo apt install r-base</code> on the command terminal), along with the following R packages: 'shiny' (version 1.6.0 has been tested), 'shinyjs' (version 2.0.0 has been tested), 'tools' (version 3.4.4 has been tested), 'data.table' (version 1.13.6 has been tested), 'stringr' (version 1.4.0 has been tested), and 'igraph' (version 1.2.6 has been tested). To install these packages, follow these steps. Run R in the command terminal. Then, to install the 'data.table' package for example, write <code>install.packages('data.table')</code>  and follow the instructions.</p>
 
 <p><strong> Mode 2. </strong>To be able to perform Mode 2, the user first needs to perform software installation steps for Mode 1. Then, the user needs to compile the "dcount.cpp" code present in the 'src' folder, and place the compiled output named 'dcount' in the 'bin' folder (to use already compiled code, copy and paste 'dcount' from 'bin/precompiled' folder to the 'bin' folder). On an Ubuntu-based linux system, you can compile the code by going to the 'src' folder from your command terminal and writing <code>g++ dcount.cpp -O3 -o dcount</code>. </p>
 
@@ -33,24 +33,24 @@
 
 <p>The software can be run either on a command-line terminal or as a graphical user interfact (GUI) application.</p>
 
-<p><strong>As a GUI application:</strong> after starting a command-line terminal (in Linux, macOS, or Windows), DynaP can be run by navigating to its base directory (i.e., DynaP) and running the single command <code>Rscript linux.R</code> for Linux, or <code>Rscript mac.R</code> for macOS. On Windows, the application can be run on double clicking the "DynaP" batch file.</p>
+<p><strong>As a GUI application:</strong> after starting a command-line terminal (in Linux, macOS, or Windows), DynaP can be run by navigating to its base directory (i.e., DynaP) and running the single command <code>Rscript DynaP-linux.R</code> for Linux, or <code>Rscript DynaP-mac.R</code> for macOS. On Windows, the application can be run on double clicking the 'DynaP-win.bat' batch file.</p>
 
 <p><strong>As a command-line application:</strong> after starting a command-line terminal (in Linux, macOS, or Windows), DynaP can be run by navigating to its base directory (i.e., DynaP) and running the following command <code>Rscript ./scripts/cmdrun.r [Distance cutoff] 
-[Number of amino acids] [Choice of task] [Path to annotation file] [Path to directory containing CIF files]</code>. The four parameters are explained below.</p>
+[Number of amino acids] [Choice of task] [Path to annotation file] [Path to directory containing CIF files]</code>. These five parameters are explained below.</p>
 
-<p>Note: no matter whether you are running DynaP on a command-line or as a GUI application, make sure that the path to the "bin" folder of R and the "bin" folder of python is set. 
+<p>Note: no matter whether you are running DynaP on a command-line or as a GUI application, make sure that the path to the 'bin' folder of R and the 'bin' folder of python is set. 
 <!-- 	For Windows, this can be done by navigating to Control Panel -> System -> Environment Variables in your computer, and adding the path to R and python "bin" folders to the "path" variable. -->
 </p>
 
-<p>There are four parameters that needs to be set before runnin the software, which are as follows.</p>
+<p>There are five parameters that needs to be set before running the software, which are as follows.</p>
 
-<p><strong>Distance cutoff:</strong> To make a PSN, amino acids are taken as nodes and any two amino acids are are close enough are connected by an edge. This parameter defines the largest 3-dimensional (3D) distance (in Angstroms) between any two amino acids in a protein domain to be considered as close enough. The application currently has seven different values to choose from, i.e., 4,5,6,...,10. In the original study, the value of 6 was used.</p>
+<p><strong>Distance cutoff:</strong> To make a PSN, amino acids are taken as nodes and any two amino acids that are close enough are connected by an edge. The 'distance cutoff' parameter defines the largest 3-dimensional (3D) distance (in Angstroms) between any two amino acids in a protein domain to be considered as close enough. The application currently has seven different values to choose from, i.e., 4,5,6,...,10. In the original study, the value of 6 was used.</p>
 
 <p><strong>Number of amino acids:</strong> A dynamic protein structure network (PSN) consists of two or more static PSN snapshots.
 			The 'number of amino acids' parameter defines the number of amino acids that are added
 		at each static protein structure network (PSN) snapshot, as the dynamic PSN is being created.
 			In more detail, given a value 'X' for the 'number of amino acids' parameter, a dynamic PSN is created as follows. Starting from the begining of a given protein sequence (i.e., the first amino acid towards the N-terminal 
-			of the protein), first X number of amino acids are converted into the first static PSN snapshot, then first 2X number of amino acids are converted into the second static PSN snapshot, then first 3X number of amino acids are converted into the thrid static PSN snapshot, and so on until all of the amino acids are captured in the last snapshot of the corresponding dynamic PSN. In the original study, a value of 5 was used. In the application 16 different the values (5,6,7,...,20) can be used.</p>
+			of the protein), first X number of amino acids are converted into the first static PSN snapshot, then first 2X number of amino acids are converted into the second static PSN snapshot, then first 3X number of amino acids are converted into the thrid static PSN snapshot, and so on until all of the amino acids in the sequence are captured in the last snapshot of the corresponding dynamic PSN. In the original study, a value of 5 was used. In the application 16 different the values (5,6,7,...,20) can be used.</p>
 
 <p><strong>Choice of task:</strong> This parameter controls the extent of the application that the user wants to run.
 			There are three options: Mode 1, Mode 2, and Mode 3.
@@ -63,14 +63,14 @@
 			The contents of the file should be in a two column format, with the two columns being separated by a 'tab'.
 			The first column should be the structual class of the corresponding protein domain in the second column. 
 			This structural class information is only used in the protein structural classification part of the software. 
-			If you do not have structural class information of the proteins in your set and if you do not wish to perform 
-			protein structural classification, then plesae add a dummy structural class for each of the proteins in your list.
+			If you do not have structural class information of the proteins in your dataset and if you do not wish to perform 
+			protein structural classification, then please add a dummy structural class for each of the proteins in your list.
 			In the second column, the name of the protein domain should be given as 'CIFID_chainID_startID1_endID1-startID2_endID2-...-startIDn_endIDn'. 
 			Here, CIFID is the name of the Cyrstallographic Information File (CIF) file. For example, for the CIF file '1fnn.cif' the CIFID is '1fnn'.
 			chainID is the idenfication of the protein chain to which the corresponding protein domain belongs. startIDs and ednIDs represent the starting and ending sequence number for each of the contiguous amino acid sequence segments of the corresponding protein domain. For example, if a protein domain has two segments that forms that domain, then startID1 will represent the sequence number of the chainID where the corresponding first segment starts, and endID1 will represent the sequence number of the chainID where the corresponding first segment ends. Additionally, startID2 will represent the sequence number of the chainID where the corresponding second segment starts, and endID2 will represent the sequence number of the chainID where the corresponding second segment ends.
 			For example, sequence number 1 to 17 in the chain A of the CIF file '1fnn.cif' belongs to the segment 1 and 
 			sequence number 192 to 275 in the chain A of the CIF file '1fnn.cif' belongs to the segment 2 of the same protein domain protein that belongs to the structural class of 'alpha'. 
-			In this case, the corresponsing line in the annotation file should be 'alpha	[tab separation] 1fnn_A_1_17-192_275'. As another example, sequence number 2 to 54 in the chain A of the CIF file '1aip.pdb' belongs to the segment 1, which is the only segment of contiugous amino acids of the domain protein, belongs to the structural class of 'alpha'. In this case, the corresponsing line in the annotation file should be 'alpha	[tab separation] 1aip_C_2_54'.
+			In this case, the corresponsing line in the annotation file should be 'alpha	[tab separation] 1fnn_A_1_17-192_275'. As another example, sequence number 2 to 54 in the chain A of the CIF file '1aip.pdb' belongs to the segment 1, which is the only segment of contiugous amino acids of the protein domain, belongs to the structural class of 'alpha'. In this case, the corresponsing line in the annotation file should be 'alpha	[tab separation] 1aip_C_2_54'.
 			If the protein domain you want to process spans the whole protein chain, then please write the first sequence number of the chain as startID and the last sequence number of the chain as the endID.</p>
 
 <p><strong>Path to CIF folder:</strong> This is a path to the directory where all of the CIF of the protein 3-dimensional structures are stored in your local computing machine. </p>
@@ -91,22 +91,22 @@
 <p><strong>5.</strong> Choose the annotation file and press the "Run program" button.</p>
 
 <p>If your are running DynaP on a command-line, then write the following command: 
-	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 1" [Path to annotation file]</code>.
-	An example command would be: <code>Rscript scripts/cmdrun.r 6 5 "Mode 1" examples/test.txt</code>
+	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 1" [Path to annotation file] [Path to directory containing CIF files]</code>.
+	An example command would be: <code>Rscript scripts/cmdrun.r 6 5 "Mode 1" examples/test.txt cif-directory</code>
 </p>
 
 <h1><a class="nav-anchor" id="secm5-1" href="#secm5-1">V. Computing dynamic graphlet features</a></h1>
 <p>Follow steps 1 to 2 from <a href="index.html#secm4-1">Section IV</a>. Then, select "Mode 2" in step 3, choose the annotation file, and press the "Run program" button.</p>
 <p>If your are running DynaP on a command-line, then write the following command: 
-	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 2" [Path to annotation file]</code>.
-	An example command would be: <code>Rscript scripts/cmdrun.r 6 5 "Mode 2" examples/test.txt</code>
+	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 2" [Path to annotation file] [Path to directory containing CIF files]</code>.
+	An example command would be: <code>Rscript scripts/cmdrun.r 6 5 "Mode 2" examples/test.txt cif-directory</code>
 </p>
 
 <h1><a class="nav-anchor" id="secm6-1" href="#secm6-1">V. Performing protein structral classification</a></h1>
 <p>Follow steps 1 to 2 from <a href="index.html#secm4-1">Section IV</a>. Then, select "Mode 3" in step 3, choose the annotation file, and press the "Run program" button.</p>
 <p>If your are running DynaP on a command-line, then write the following command: 
-	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 3" [Path to annotation file]</code>.
-	An example command would be: <code>Rscript scripts/cmdrun.r 6 5 "Mode 3" examples/test.txt</code>
+	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 3" [Path to annotation file] [Path to directory containing CIF files]</code>.
+	An example command would be: <code>Rscript scripts/cmdrun.r 6 5 "Mode 3" examples/test.txt cif-directory</code>
 </p>
 
 <!-- 
