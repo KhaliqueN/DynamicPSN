@@ -4,8 +4,7 @@
 See documentation in docs/index.html
 
 
-Folder structure
-================
+Folder structure:
 
 bin/ contains the dcount file that is used to compute dynamic graphlet degree vector matrix
 
