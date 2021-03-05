@@ -5,16 +5,6 @@ if (length(args)< 5) {
     [Choice of task] [Path to the annotation file] [Path to the directory with all .cif files]'\n #### Check the manual for more details ", call.=FALSE)
 }
 
-# if (!require("shiny")) {
-#   install.packages("shiny")
-#   library(shiny)
-# }
-
-# if (!require("shinyjs")) {
-#   install.packages("shinyjs")
-#   library(shinyjs)
-# }
-
 if (!require("tools")) {
   install.packages("tools")
   library(tools)
