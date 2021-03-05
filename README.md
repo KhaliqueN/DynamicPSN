@@ -23,6 +23,6 @@ vectorfiles/ contains helper files for the dynamic graphlets program
 
 ====
 
-This folder contains the original implementation of DynaP by Khalique Newaz, 2021. This folder is part of the publication "Dynamic network analysis improvfes protein structural classification", Khalique Newaz, Jacob Piland, and Tijana Milenkovic (2021), under review.
+This folder contains the original implementation of DynaP by Khalique Newaz, 2021. This folder is part of the publication "Dynamic network analysis improves protein structural classification", Khalique Newaz, Jacob Piland, and Tijana Milenkovic (2021), under review.
 
 
