@@ -1,7 +1,8 @@
 
 runmaincmd <- function(cutoff, naa, choice, annotationFile, pdbDirectory){
 
-	outputDirectory <- strsplit(basename(annotationFile),'[.]')[[1]][1]
+	# outputDirectory <- strsplit(basename(annotationFile),'[.]')[[1]][1]
+	outputDirectory <- 'output'
 
 	#check if there is an output folder
 	if(dir.exists(outputDirectory)){unlink(outputDirectory, recursive=TRUE)}
@@ -11,7 +12,7 @@ runmaincmd <- function(cutoff, naa, choice, annotationFile, pdbDirectory){
 	pdbID <- unlist(lapply(strsplit(ann[[2]],'[_]'),'[[',1))
 	chainID <- unlist(lapply(strsplit(ann[[2]],'[_]'),'[[',2))
 
-	st <- strsplit(ann[[2]],'[-]')
+	st <- strsplit(ann[[2]],'[+]')
 	startID <- list()
 	endID <- list()
 	for(k in 1:length(st)){

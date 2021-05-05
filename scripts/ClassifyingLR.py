@@ -67,31 +67,20 @@ def classifying_LR_l2(data_directory,file,Directory_Save,NUM_FOLDS,outputDirecto
     NUM_FOLDS = NUM_FOLDS
     # test_indices_outer, train_indices_outer, keys_outer = partition(X, Y, NUM_FOLDS)
     opt_c = [] 
-
+    score_list_outer = []
 
     for k in range(NUM_FOLDS):
 
 
         df_out_train, df_out_test, df_inner_test0, df_inner_train0, df_inner_test1, df_inner_train1, df_inner_test2, df_inner_train2, df_inner_test3, df_inner_train3, df_inner_test4, df_inner_train4 = read_data(data_directory, file, k, NUM_FOLDS,outputDirectory)
 
-
-        # ## testing ######
-
-        # name = Directory_Save + '/tr_' + str(k)+ '.txt'
-        # with open(name, 'w') as f:
-        #     f.writelines("%s\n" % y for y in np.array(df_out_train.iloc[:, 0]))
-
-        # name = Directory_Save + '/te_' + str(k)+ '.txt'
-        # with open(name, 'w') as f:
-        #     f.writelines("%s\n" % y for y in np.array(df_out_test.iloc[:, 0]))
-
-        # ###############
         test_outer = np.array(df_out_test.iloc[:, 2:])
-        test_outer_labs = np.array(df_out_test.iloc[:, 1])
+        test_outer_labs = np.array(map(str,df_out_test.iloc[:, 1]))
+
         gene_test = np.array(df_out_test.iloc[:, 0])
 
         train_outer = np.array(df_out_train.iloc[:, 2:])
-        train_outer_labs = np.array(df_out_train.iloc[:, 1])
+        train_outer_labs = np.array(map(str,df_out_train.iloc[:, 1]))
 
 
         c = np.logspace(-8, 8, num=10, base=2.0)
@@ -99,8 +88,6 @@ def classifying_LR_l2(data_directory,file,Directory_Save,NUM_FOLDS,outputDirecto
         c_optimal = 1
 
         score_max = 0
-
-        score_list_outer = []
 
         for item in c:
             score_list_inner = []
@@ -110,9 +97,10 @@ def classifying_LR_l2(data_directory,file,Directory_Save,NUM_FOLDS,outputDirecto
                 df_inner_test = globals()['df_inner_test%s' % n]
 
                 dat_train = np.array(df_inner_train.iloc[:, 2:])
-                labs_train = np.array(df_inner_train.iloc[:, 1])
+                labs_train = np.array(map(str,df_inner_train.iloc[:, 1]))
+
                 dat_test = np.array(df_inner_test.iloc[:, 2:])
-                labs_test = np.array(df_inner_test.iloc[:, 1])
+                labs_test = np.array(map(str,df_inner_test.iloc[:, 1]))
 
                 model = LogisticRegression(C=item)
 
@@ -154,7 +142,7 @@ def classifying_LR_l2(data_directory,file,Directory_Save,NUM_FOLDS,outputDirecto
         f.writelines("%s\n" % y for y in opt_c)
 
 	# accuracy over each fold 
-    name = 'Avg-accuracy.txt'
+    name = 'Per-fold-accuracy.txt'
     with open(Directory_Save + '/' + name, 'w') as f:
         f.writelines("%s\n" % y for y in score_list_outer)
 
@@ -163,18 +151,7 @@ def classifying_LR_l2(data_directory,file,Directory_Save,NUM_FOLDS,outputDirecto
 def classify(dataset, NUM_FOLDS, outputDirectory):
     """ main function for doing classification
 
-    Parameters
-    ----------
-    dataset : str
-        Name of dataset
-    sampling_type : int
-        Type of sampling method
-    metric: str
-        Metric for evaluation (Accuracy or Matthews correlation coefficient)
-    save_acc_perclass: bool
-        a flag for whether or not this function saves accuracy per class
-
-    """
+"""
 
     data_directory = dataset
     dict_results = {}

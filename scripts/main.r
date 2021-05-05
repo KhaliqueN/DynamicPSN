@@ -12,7 +12,7 @@ runmain <- function(cutoff, naa, choice, annotationFile, pdbDirectory, updatePro
   pdbID <- unlist(lapply(strsplit(ann[[2]],'[_]'),'[[',1))
   chainID <- unlist(lapply(strsplit(ann[[2]],'[_]'),'[[',2))
 
-  st <- strsplit(ann[[2]],'[-]')
+  st <- strsplit(ann[[2]],'[+]')
   startID <- list()
   endID <- list()
   for(k in 1:length(st)){

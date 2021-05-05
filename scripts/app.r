@@ -1,12 +1,12 @@
 
 
-library(shiny)
-library(shinyjs)
-library(shinyFiles)
-library(tools)
-library(data.table)
-library(stringr)
-library(igraph)
+suppressMessages(library(shiny))
+suppressMessages(library(shinyjs))
+suppressMessages(library(shinyFiles))
+suppressMessages(library(tools))
+suppressMessages(library(data.table))
+suppressMessages(library(stringr))
+suppressMessages(library(igraph))
 
 
 source("./scripts/utils.r")
@@ -170,12 +170,12 @@ ui <- fluidPage(
 			This structural class information is only used in the protein structural classification part of the software. 
 			If you do not have structural class information of the proteins in your dataset and if you do not wish to perform 
 			protein structural classification, then please add a dummy structural class for each of the proteins in your list.
-			In the second column, the name of the protein domain should be given as 'CIFID_chainID_startID1_endID1-startID2_endID2-...-startIDn_endIDn'. 
+			In the second column, the name of the protein domain should be given as 'CIFID_chainID_startID1_endID1+startID2_endID2+...+startIDn_endIDn'. 
 			Here, CIFID is the name of the CIF file. For example, for the CIF file '1fnn.cif' the CIFID is '1fnn'.
 			chainID is the idenfication of the protein chain to which the corresponding protein domain belongs. startIDs and ednIDs represent the starting and ending sequence number for each of the contiguous amino acid sequence segments of the corresponding protein domain. For example, if a protein domain has two segments that forms that domain, then startID1 will represent the sequence number of the chainID where the corresponding first segment starts, and endID1 will represent the sequence number of the chainID where the corresponding first segment ends. Additionally, startID2 will represent the sequence number of the chainID where the corresponding second segment starts, and endID2 will represent the sequence number of the chainID where the corresponding second segment ends.
 			For example, sequence number 1 to 17 in the chain A of the CIF file '1fnn.cif' belongs to the segment 1 and 
 			sequence number 192 to 275 in the chain A of the CIF file '1fnn.cif' belongs to the segment 2 of the same protein domain protein that belongs to the structural class of 'alpha'. 
-			In this case, the corresponsing line in the annotation file should be 'alpha	[tab separation] 1fnn_A_1_17-192_275'. As another example, sequence number 2 to 54 in the chain A of the CIF file '1aip.pdb' belongs to the segment 1, which is the only segment of contiugous amino acids of the protein domain, belongs to the structural class of 'alpha'. In this case, the corresponsing line in the annotation file should be 'alpha	[tab separation] 1aip_C_2_54'.
+			In this case, the corresponsing line in the annotation file should be 'alpha	[tab separation] 1fnn_A_1_17+192_275'. As another example, sequence number 2 to 54 in the chain A of the CIF file '1aip.pdb' belongs to the segment 1, which is the only segment of contiugous amino acids of the protein domain, belongs to the structural class of 'alpha'. In this case, the corresponsing line in the annotation file should be 'alpha	[tab separation] 1aip_C_2_54'.
 			If the protein domain you want to process spans the whole protein chain, then please write the first sequence number of the chain as startID and the last sequence number of the chain as the endID."
 			
 			),

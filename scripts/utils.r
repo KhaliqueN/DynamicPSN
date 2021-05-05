@@ -411,11 +411,12 @@ topca <- function(inputfile, variationThreshold, outputpcfile){
 ## create feature matrix
 tofeaturematrix <- function(indir, outdir, idens){
 
-  pca <- fread(paste0(indir, '/pca-', basename(idens)), sep='\t')
+  pca <- fread(paste0(indir, '/pca-', basename(idens)), sep='\t',colClasses='character', header=FALSE)
   pca$V1 <- substr(pca$V1,1,nchar(pca$V1)-16)
 
-  temp <- fread(idens, sep='\t', header=FALSE)
+  temp <- fread(idens, sep='\t', header=FALSE, colClasses='character')
   class <- temp[[1]]
+  # print(class)
   ord <- unlist(lapply(strsplit(temp[[2]], '[.]'), '[[',1))
 
   pcaj <- pca[pca$V1 %in% as.factor(ord), ]
@@ -428,7 +429,6 @@ tofeaturematrix <- function(indir, outdir, idens){
   fwrite(pcaj3, paste0(outdir,'/matrix-pca-', basename(idens)), quote=FALSE, row.names=FALSE, col.names=FALSE, sep='\t')
 
 }
-
 
 
 
