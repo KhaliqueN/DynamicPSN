@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Tutorial · DynaP</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>DynaP</h1>
+<title>Tutorial · DynamicProtein</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>DynamicProtein</h1>
 
 <select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select>
 <!-- <form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form> -->
@@ -16,9 +16,9 @@
 
 <!-- <a class="edit-page" href="https://github.com//blob/master/docs/src/index.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Tutorial</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Tutorial-1" href="#Tutorial-1">Tutorial</a></h1> -->
 <!-- create dynamic protein structure networks (PSNs), compute dynamic graphlets-based features of dynamic PSNs, and perform protein structural classfication using -->
-<h1><a class="nav-anchor" id="I.-Introduction-1" href="#I.-Introduction-1">I. Introduction</a></h1><p>DynaP[1] is our software tool to create dynamic protein structure networks (PSNs), extract dynamic graphlet-based features of the dynamic PSNs, and perform protein structural classification. The following sections contain a tutorial on how to use DynaP.</p><p><a href="index.html#secm2-1">Section II</a> contains installation instructions. <a href="index.html#secm3-1">Section III</a> describes how to run the software. <a href="index.html#secm4-1">Section IV</a> describes how to create dynamic PSNs. <a href="index.html#secm5-1">Section V</a> describes how to create dynamic PSNs and compute their dynamic graphlet features. <a href="index.html#secm6-1">Section VI</a> describes how to create dynamic PSNs, compute their dynamic graphlets features, and perform protein structural classification.</p><p>[1] Dynamic networks improve protein structural classification, K. Newaz, J. Piland, and T. Milenković (2021), under review.</p>
+<h1><a class="nav-anchor" id="I.-Introduction-1" href="#I.-Introduction-1">I. Introduction</a></h1><p>DynamicProtein[1] is our software tool to create dynamic protein structure networks (PSNs), extract dynamic graphlet-based features of the dynamic PSNs, and perform protein structural classification. The following sections contain a tutorial on how to use DynamicProtein.</p><p><a href="index.html#secm2-1">Section II</a> contains installation instructions. <a href="index.html#secm3-1">Section III</a> describes how to run the software. <a href="index.html#secm4-1">Section IV</a> describes how to create dynamic PSNs. <a href="index.html#secm5-1">Section V</a> describes how to create dynamic PSNs and compute their dynamic graphlet features. <a href="index.html#secm6-1">Section VI</a> describes how to create dynamic PSNs, compute their dynamic graphlets features, and perform protein structural classification.</p><p>[1] Dynamic networks improve protein structural classification, K. Newaz, J. Piland, and T. Milenković (2021), under review.</p>
 
-<h1><a class="nav-anchor" id="secm2-1" href="#secm2-1">II. Installation</a></h1><p>DynaP can be run in three different modes: 1) Mode 1 to just create dynamic PSNs, 2) Mode 2 to create dynamic PSNs and extract dynamic graphlet features from dynamic PSNs, and 3) Mode 3 to create dynamic PSNs, extract dynamic graphlet features of dynamic PSNs, and perform protein structural classification. <strong>DynaP has been tested on Ubuntu-based Linux systems.</strong> </p>
+<h1><a class="nav-anchor" id="secm2-1" href="#secm2-1">II. Installation</a></h1><p>DynamicProtein can be run in three different modes: 1) Mode 1 to just create dynamic PSNs, 2) Mode 2 to create dynamic PSNs and extract dynamic graphlet features from dynamic PSNs, and 3) Mode 3 to create dynamic PSNs, extract dynamic graphlet features of dynamic PSNs, and perform protein structural classification. <strong>DynamicProtein has been tested on Ubuntu-based Linux systems.</strong> </p>
 
 <p><strong> Mode 1. </strong>To be able to perform Mode 1, the user needs to install <a href="https://www.r-project.org/"> R version 3.4.4 </a> or higher (on an ubuntu-based linux system, this can be done by writing <code>sudo apt install r-base</code> on the command terminal), along with the following R packages: 'shiny' (version 1.6.0 has been tested), 'shinyjs' (version 2.0.0 has been tested), 'tools' (version 3.4.4 has been tested), 'data.table' (version 1.13.6 has been tested), 'stringr' (version 1.4.0 has been tested), and 'igraph' (version 1.2.6 has been tested). To install these packages, follow these steps. Run R in the command terminal. Then, to install the 'data.table' package for example, write <code>install.packages('data.table')</code>  and follow the instructions.</p>
 
@@ -33,11 +33,11 @@
 
 <p>The software can be run either on a command-line terminal or as a graphical user interfact (GUI) application.</p>
 
-<p><strong>As a GUI application:</strong> after starting a command-line terminal, DynaP can be run by navigating to its base directory (i.e., DynaP) and running the single command <code>Rscript DynaP.R</code>.</p>
+<p><strong>As a GUI application:</strong> after starting a command-line terminal, DynamicProtein can be run by navigating to its base directory (i.e., DynamicProtein) and running the single command <code>Rscript DynaP.R</code>.</p>
 
-<p><strong>As a command-line application:</strong> after starting a command-line terminal, DynaP can be run by navigating to its base directory (i.e., DynaP) and running the following <code>Rscript ./scripts/cmdrun.r [Distance cutoff] [Number of amino acids] [Choice of task] [Path to annotation file] [Path to directory containing CIF files]</code>. These five parameters are explained below.</p>
+<p><strong>As a command-line application:</strong> after starting a command-line terminal, DynamicProtein can be run by navigating to its base directory (i.e., DynamicProtein) and running the following <code>Rscript ./scripts/cmdrun.r [Distance cutoff] [Number of amino acids] [Choice of task] [Path to annotation file] [Path to directory containing CIF files]</code>. These five parameters are explained below.</p>
 
-<!-- <p>Note: no matter whether you are running DynaP on a command-line or as a GUI application, make sure that the path to the 'bin' folder of R and the 'bin' folder of python is set. 
+<!-- <p>Note: no matter whether you are running DynamicProtein on a command-line or as a GUI application, make sure that the path to the 'bin' folder of R and the 'bin' folder of python is set. 
 	For Windows, this can be done by navigating to Control Panel -> System -> Environment Variables in your computer, and adding the path to R and python "bin" folders to the "path" variable.
 </p> -->
 
@@ -75,9 +75,9 @@
 <p><strong>Path to CIF folder:</strong> This is a path to the directory where all of the CIFs of the protein 3-dimensional structures are stored in your local computing machine. </p>
 
 
-<h1><a class="nav-anchor" id="secm4-1" href="#secm4-1">IV. Creating dynamic protein structure networks</a></h1><p>If you just want to create dynamic PSNs using DynaP, then you may follow the following steps if your are running DynaP as a GUI application.</p>
+<h1><a class="nav-anchor" id="secm4-1" href="#secm4-1">IV. Creating dynamic protein structure networks</a></h1><p>If you just want to create dynamic PSNs using DynamicProtein, then you may follow the following steps if your are running DynamicProtein as a GUI application.</p>
 
-<p><strong>1.</strong> Start by navigating to the base directory of this software, and running the command <code>Rscript DynaP.R</code>. This will start up the DynaP application in your default browser (if the application does not show and the browser page shows something like "Unable to connect", then please refresh the webpage and the application will start running). </p>
+<p><strong>1.</strong> Start by navigating to the base directory of this software, and running the command <code>Rscript DynaP.R</code>. This will start up the DynamicProtein application in your default browser (if the application does not show and the browser page shows something like "Unable to connect", then please refresh the webpage and the application will start running). </p>
 
 <p><strong>2.</strong> Choose the distance cutoff and the number of amino acids.</p>
 
@@ -87,7 +87,7 @@
 
 <p><strong>5.</strong> Choose the annotation file and press the "Run program" button.</p>
 
-<p>If your are running DynaP on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
+<p>If your are running DynamicProtein on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
 	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 1" [Path to annotation file] [Path to directory containing CIF files]</code>.</p>
 <p><strong>Example command-line run 1a:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 1" ./examples/test1.txt ./cif-directory</p>
 <p><strong>Example command-line run 1b:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 1" ./examples/test2.txt ./cif-directory</p>
@@ -95,7 +95,7 @@
 
 <h1><a class="nav-anchor" id="secm5-1" href="#secm5-1">V. Computing dynamic graphlet features</a></h1>
 <p>Follow steps 1 to 2 from <a href="index.html#secm4-1">Section IV</a>. Then, select "Mode 2" in step 3, choose the annotation file, and press the "Run program" button.</p>
-<p>If your are running DynaP on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
+<p>If your are running DynamicProtein on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
 	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 2" [Path to annotation file] [Path to directory containing CIF files]</code>.
 </p>
 <p><strong>Example command-line run 2a:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 2" ./examples/test1.txt ./cif-directory</p>
@@ -103,7 +103,7 @@
 
 <h1><a class="nav-anchor" id="secm6-1" href="#secm6-1">VI. Performing protein structral classification</a></h1>
 <p>Follow steps 1 to 2 from <a href="index.html#secm4-1">Section IV</a>. Then, select "Mode 3" in step 3, choose the annotation file, and press the "Run program" button.</p>
-<p>If your are running DynaP on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
+<p>If your are running DynamicProtein on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
 	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 3" [Path to annotation file] [Path to directory containing CIF files]</code>.
 </p>
 <p><strong>Example command-line run 3a:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 3" ./examples/test1.txt ./cif-directory</p>
