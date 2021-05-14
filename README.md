@@ -12,6 +12,8 @@ docs/ contains documentation for DynaP (docs/index.html contains the main docume
 
 examples/ contains example annotation files
 
+datasets/ contains all annotation files related to all datasets used in this study
+
 cif-directory/ contains all of the Crystallographic Information Files (CIFs) that you use
 
 scripts/ contains R or python scripts 
