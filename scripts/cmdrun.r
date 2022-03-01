@@ -1,8 +1,8 @@
 args=commandArgs(TRUE)
 
-if (length(args)< 5) {
+if (length(args) < 6) {
   stop("#### Code should be run as 'Rscript maincmd.r [Distance cutoff] [Number of amino acids] 
-    [Choice of task] [Path to the annotation file] [Path to the directory with all .cif files]'\n #### Check the manual for more details ", call.=FALSE)
+    [Choice of task] [Path to the annotation file] [Path to the directory with all .cif files] [Partition flag] [Partition folder]'\n #### Check the program manual for more details ", call.=FALSE)
 }
 
 
@@ -20,7 +20,8 @@ naa <- as.numeric(args[2])
 choice <- args[3]
 annotationFile <- args[4]
 pdbDirectory <- args[5]
+partitionFlag <- args[6]
+partitionFolder <- args[7]
 
-
-runmaincmd(cutoff, naa, choice, annotationFile, pdbDirectory) 
+runmaincmd(cutoff, naa, choice, annotationFile, pdbDirectory, partitionFlag, partitionFolder) 
 

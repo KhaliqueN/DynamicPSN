@@ -75,12 +75,17 @@ def classifying_LR_l2(data_directory,file,Directory_Save,NUM_FOLDS,outputDirecto
         df_out_train, df_out_test, df_inner_test0, df_inner_train0, df_inner_test1, df_inner_train1, df_inner_test2, df_inner_train2, df_inner_test3, df_inner_train3, df_inner_test4, df_inner_train4 = read_data(data_directory, file, k, NUM_FOLDS,outputDirectory)
 
         test_outer = np.array(df_out_test.iloc[:, 2:])
-        test_outer_labs = np.array(map(str,df_out_test.iloc[:, 1]))
+        test_outer_labs = np.array(df_out_test.iloc[:, 1])
+        test_outer_labs = test_outer_labs.astype(str)
+        # print(test_outer_labs)
+        #np.array(map(str,df_out_test.iloc[:, 1]))
 
         gene_test = np.array(df_out_test.iloc[:, 0])
 
         train_outer = np.array(df_out_train.iloc[:, 2:])
-        train_outer_labs = np.array(map(str,df_out_train.iloc[:, 1]))
+        train_outer_labs = np.array(df_out_train.iloc[:, 1])
+        train_outer_labs = train_outer_labs.astype(str)
+        #np.array(map(str,df_out_train.iloc[:, 1]))
 
 
         c = np.logspace(-8, 8, num=10, base=2.0)
@@ -97,10 +102,14 @@ def classifying_LR_l2(data_directory,file,Directory_Save,NUM_FOLDS,outputDirecto
                 df_inner_test = globals()['df_inner_test%s' % n]
 
                 dat_train = np.array(df_inner_train.iloc[:, 2:])
-                labs_train = np.array(map(str,df_inner_train.iloc[:, 1]))
+                labs_train = np.array(df_inner_train.iloc[:, 1])
+                labs_train = labs_train.astype(str)
+                #np.array(map(str,df_inner_train.iloc[:, 1]))
 
                 dat_test = np.array(df_inner_test.iloc[:, 2:])
-                labs_test = np.array(map(str,df_inner_test.iloc[:, 1]))
+                labs_test = np.array(df_inner_test.iloc[:, 1])
+                labs_test = labs_test.astype(str)
+                #np.array(map(str,df_inner_test.iloc[:, 1]))
 
                 model = LogisticRegression(C=item)
 
@@ -156,7 +165,7 @@ def classify(dataset, NUM_FOLDS, outputDirectory):
     data_directory = dataset
     dict_results = {}
     files = [f for f in os.listdir(data_directory) if f.endswith(".txt")]
-
+    # print(files[0])
     Directory_Save = outputDirectory+"/Classification-results/"
     if not os.path.exists(Directory_Save):
     	os.makedirs(Directory_Save)

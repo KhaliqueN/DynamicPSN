@@ -1,5 +1,5 @@
 
-runmaincmd <- function(cutoff, naa, choice, annotationFile, pdbDirectory){
+runmaincmd <- function(cutoff, naa, choice, annotationFile, pdbDirectory, partitionFlag, partitionFolder){
 
 	# outputDirectory <- strsplit(basename(annotationFile),'[.]')[[1]][1]
 	outputDirectory <- 'output'
@@ -200,9 +200,14 @@ runmaincmd <- function(cutoff, naa, choice, annotationFile, pdbDirectory){
 
 		if(cnt >= 10 & length(numofcls) >= 2){
 
-		## create partitions
-		createPartition(annotationFile, paste0(outputDirectory,'/partitions'), 5)
-
+		if(partitionFlag == 0){
+			## create partitions
+			createPartition(annotationFile, paste0(outputDirectory,'/partitions'), 5)
+		}else{
+			cat("\nUsing the partitions provided by the user. Please make sure the format of the partitions are consistent with the program (see docmentation of the program for details).\n")
+			system(paste('cp -r',partitionFolder, outputDirectory))
+		}
+		
 		## run classification
 		command=paste("python ./scripts/RunLR.py", outfeatureDirectory, 5, outputDirectory)
 		system(command)

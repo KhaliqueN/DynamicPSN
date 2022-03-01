@@ -139,8 +139,9 @@ pdb2mat2dynnetpct <- function(seqq, xcoord, ycoord, zcoord, cutoff, pct, outnetD
 }
 
 ## PDB to unweighted network function
-pdb2mat2uwnet <- function(seqq, xcoord, ycoord, zcoord, cutoff, naa, outnetDirectory, fname){
+pdb2mat2uwnet <- function(seqq, xcoord, ycoord, zcoord, cutoff, outnetDirectory, fname){
 
+  # print(fname)
   uniqueids <- unique(seqq)
   lastPositions <- length(seqq)-match(unique(seqq),rev(seqq))+1
   corData <- data.frame(X=xcoord,Y=ycoord,Z=zcoord)
@@ -356,6 +357,54 @@ dgdvm2vec <- function(outdir, indir, outfile){
 
 }
 
+# Node GDVM to vector
+ngdvm2vec <- function(outdir, indir, outfile){
+
+  files = list.files(indir, pattern='*.ndump2', full.names=TRUE)
+
+  temp <- fread(files[1], sep=' ', header=FALSE)
+  loop <- length(temp) - 1
+
+  remove <- seq(1,loop)
+
+  for(k in 1:length(files)){
+
+      f1 <- fread(files[k], sep=' ', header=FALSE)
+      f2 <- f1[,V1:=NULL]
+      f3 <- removeZero(f2)
+      wh <- which(f3 == TRUE)
+      remove <- intersect(remove, wh)
+
+  }
+
+  remove <- remove+1
+
+
+  ofile <- paste0(outdir,'/vec-',basename(outfile))
+  if(file.exists(ofile)){file.remove(ofile)}
+
+  xx <- file.create(ofile)
+  fileConn <- file(ofile, open='wt')
+
+  for(k in 1:length(files)){
+
+      m = as.matrix(fread(files[k], drop=remove))
+      m1= m[,1] #Labels
+      m = m[,2:ncol(m)]
+      m = apply(m,2,as.numeric)
+      cm = getcor(m)
+      cm1 <- c(basename(files[k]), cm)
+      cm2 <- paste(cm1, collapse='\t')
+      writeLines(cm2, fileConn)
+
+  }
+
+  close(fileConn)
+
+}
+
+
+
 
 
 ## eliminate zero variation columns
@@ -427,6 +476,53 @@ tofeaturematrix <- function(indir, outdir, idens){
   pcaj3 <- cbind(psan, pcaj2)
 
   fwrite(pcaj3, paste0(outdir,'/matrix-pca-', basename(idens)), quote=FALSE, row.names=FALSE, col.names=FALSE, sep='\t')
+
+}
+
+## create feature matrix
+tofeaturematrixuw <- function(indir, outdir, idens){
+
+  pca <- fread(paste0(indir, '/vec-', basename(idens)), sep='\t',colClasses='character', header=FALSE)
+  pca$V1 <- substr(pca$V1,1,nchar(pca$V1)-7)
+
+  temp <- fread(idens, sep='\t', header=FALSE, colClasses='character')
+  class <- temp[[1]]
+  # print(class)
+  ord <- unlist(lapply(strsplit(temp[[2]], '[.]'), '[[',1))
+
+  pcaj <- pca[pca$V1 %in% as.factor(ord), ]
+  pcaj1 <- pcaj[match(ord, pcaj$V1),]
+  psan <- pcaj1$V1
+  pcaj1 <- pcaj1[,V1:=NULL]
+  pcaj2 <- cbind(data.frame(class), pcaj1)
+  pcaj3 <- cbind(psan, pcaj2)
+
+  fwrite(pcaj3, paste0(outdir,'/matrix-vec-', basename(idens)), quote=FALSE, row.names=FALSE, col.names=FALSE, sep='\t')
+
+}
+
+## create feature matrix
+tofeaturematrixo <- function(indir, outdir, idens){
+
+  # indir <- 'output/ordered-graphlets'
+  # idens <- 'examples/test1.txt'
+  # outdir <- 'output/feature-matrix'
+  annotf1 <- fread(idens, sep='\t', header=FALSE)[[1]]
+  annotf2 <- fread(idens, sep='\t', header=FALSE)[[2]]
+
+  nfile <- paste0(outdir,'/matrix-file.txt')
+  file.create(nfile)
+  fileConn <-file(nfile, open='wt')
+
+  for(k in 1:length(annotf2)){
+
+    temp <- fread(paste0(indir,'/',annotf2[k],'.ogf'), sep='\t',colClasses='character', header=FALSE)
+    temp1 <- paste(c(as.character(annotf2[k]), as.character(annotf1[k]),temp[[2]]), collapse='\t')
+    writeLines(temp1, fileConn)
+    
+  }
+
+  close(fileConn)
 
 }
 

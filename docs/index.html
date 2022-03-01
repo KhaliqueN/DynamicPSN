@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Tutorial · DynamicProtein</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>DynamicProtein</h1>
+<title>Tutorial · Multi-layer sequential PSN</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link href="assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><h1>Multi-layer sequential PSN</h1>
 
 <select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select>
 <!-- <form class="search" id="search-form" action="search.html"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form> -->
 <ul><li class="current"><a class="toctext" href="index.html">Tutorial</a><ul class="internal"><li class="toplevel">
 
-<a class="toctext" href="#I.-Introduction-1">I. Introduction</a></li><li class="toplevel"><a class="toctext" href="#secm2-1">II. Installation</a></li><li class="toplevel"><a class="toctext" href="#secm3-1">III. Running the software</a></li><li class="toplevel"><a class="toctext" href="#secm4-1">IV. Creating dynamic protein structure networks</a></li><li class="toplevel"><a class="toctext" href="#secm5-1">V. Computing dynamic graphlet features</a></li><li class="toplevel"><a class="toctext" href="#secm6-1">VI. Performing protein structural classification</a></li>
+<a class="toctext" href="#I.-Introduction-1">I. Introduction</a></li><li class="toplevel"><a class="toctext" href="#secm2-1">II. Installation</a></li><li class="toplevel"><a class="toctext" href="#secm3-1">III. Running the software</a></li><li class="toplevel"><a class="toctext" href="#secm4-1">IV. Creating multi-layer sequential protein structure networks</a></li><li class="toplevel"><a class="toctext" href="#secm5-1">V. Computing dynamic graphlet features</a></li><li class="toplevel"><a class="toctext" href="#secm6-1">VI. Performing protein structural classification</a></li>
 <!-- <li><a class="toctext" href="#sec4-1">Creating synthetic dynamic networks</a></li> -->
 <!-- <li><a class="toctext" href="#sec5-1">Adding noise to a dynamic network</a></li></ul></li>
 <li><a class="toctext" href="funs.html">Functions</a></li> -->
@@ -15,10 +15,10 @@
 </nav><article id="docs"><header><nav><ul><li><a href="index.html">Tutorial</a></li></ul>
 
 <!-- <a class="edit-page" href="https://github.com//blob/master/docs/src/index.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Tutorial</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Tutorial-1" href="#Tutorial-1">Tutorial</a></h1> -->
-<!-- create dynamic protein structure networks (PSNs), compute dynamic graphlets-based features of dynamic PSNs, and perform protein structural classfication using -->
-<h1><a class="nav-anchor" id="I.-Introduction-1" href="#I.-Introduction-1">I. Introduction</a></h1><p>DynamicProtein[1] is our software tool to create dynamic protein structure networks (PSNs), extract dynamic graphlet-based features of the dynamic PSNs, and perform protein structural classification. The following sections contain a tutorial on how to use DynamicProtein.</p><p><a href="index.html#secm2-1">Section II</a> contains installation instructions. <a href="index.html#secm3-1">Section III</a> describes how to run the software. <a href="index.html#secm4-1">Section IV</a> describes how to create dynamic PSNs. <a href="index.html#secm5-1">Section V</a> describes how to create dynamic PSNs and compute their dynamic graphlet features. <a href="index.html#secm6-1">Section VI</a> describes how to create dynamic PSNs, compute their dynamic graphlets features, and perform protein structural classification.</p><p>[1] Dynamic networks improve protein structural classification, K. Newaz, J. Piland, and T. Milenković (2021), under review.</p>
+<!-- create multi-layer sequential protein structure networks (PSNs), compute dynamic graphlets-based features of multi-layer sequentials, and perform protein structural classfication using -->
+<h1><a class="nav-anchor" id="I.-Introduction-1" href="#I.-Introduction-1">I. Introduction</a></h1><p>Our software tool [1] creates multi-layer sequential protein structure networks (PSNs), extract dynamic graphlet-based features of the multi-layer sequential PSNs, and perform protein structural classification. The following sections contain a tutorial on how to use our software.</p><p><a href="index.html#secm2-1">Section II</a> contains installation instructions. <a href="index.html#secm3-1">Section III</a> describes how to run the software. <a href="index.html#secm4-1">Section IV</a> describes how to create multi-layer sequentials. <a href="index.html#secm5-1">Section V</a> describes how to create multi-layer sequentials and compute their dynamic graphlet features. <a href="index.html#secm6-1">Section VI</a> describes how to create multi-layer sequentials, compute their dynamic graphlets features, and perform protein structural classification.</p><p>[1] Dynamic networks improve protein structural classification, K. Newaz, J. Piland, and T. Milenković (2021), under review.</p>
 
-<h1><a class="nav-anchor" id="secm2-1" href="#secm2-1">II. Installation</a></h1><p>DynamicProtein can be run in three different modes: 1) Mode 1 to just create dynamic PSNs, 2) Mode 2 to create dynamic PSNs and extract dynamic graphlet features from dynamic PSNs, and 3) Mode 3 to create dynamic PSNs, extract dynamic graphlet features of dynamic PSNs, and perform protein structural classification. <strong>DynamicProtein has been tested on Ubuntu-based Linux systems.</strong> </p>
+<h1><a class="nav-anchor" id="secm2-1" href="#secm2-1">II. Installation</a></h1><p>Our software can be run in three different modes: 1) Mode 1 to just create multi-layer sequentials, 2) Mode 2 to create multi-layer sequentials and extract dynamic graphlet features from multi-layer sequentials, and 3) Mode 3 to create multi-layer sequentials, extract dynamic graphlet features of multi-layer sequentials, and perform protein structural classification. <strong>Our software has been tested on Ubuntu-based Linux systems.</strong> </p>
 
 <p><strong> Mode 1. </strong>To be able to perform Mode 1, the user needs to install <a href="https://www.r-project.org/"> R version 3.4.4 </a> or higher (on an ubuntu-based linux system, this can be done by writing <code>sudo apt install r-base</code> on the command terminal), along with the following R packages: 'shiny' (version 1.6.0 has been tested), 'shinyjs' (version 2.0.0 has been tested), 'tools' (version 3.4.4 has been tested), 'data.table' (version 1.13.6 has been tested), 'stringr' (version 1.4.0 has been tested), and 'igraph' (version 1.2.6 has been tested). To install these packages, follow these steps. Run R in the command terminal. Then, to install the 'data.table' package for example, write <code>install.packages('data.table')</code>  and follow the instructions.</p>
 
@@ -33,23 +33,23 @@
 
 <p>The software can be run either on a command-line terminal or as a graphical user interfact (GUI) application.</p>
 
-<p><strong>As a GUI application:</strong> after starting a command-line terminal, DynamicProtein can be run by navigating to its base directory (i.e., DynamicProtein) and running the single command <code>Rscript DynaP.R</code>.</p>
+<p><strong>As a GUI application:</strong> after starting a command-line terminal, our software can be run by navigating to its base directory and running the single command <code>Rscript gui.R</code>.</p>
 
-<p><strong>As a command-line application:</strong> after starting a command-line terminal, DynamicProtein can be run by navigating to its base directory (i.e., DynamicProtein) and running the following <code>Rscript ./scripts/cmdrun.r [Distance cutoff] [Number of amino acids] [Choice of task] [Path to annotation file] [Path to directory containing CIF files]</code>. These five parameters are explained below.</p>
+<p><strong>As a command-line application:</strong> after starting a command-line terminal, our software can be run by navigating to its base directory and running the following <code>Rscript ./scripts/cmdrun.r [Distance cutoff] [Number of amino acids] [Choice of task] [Path to annotation file] [Path to directory containing CIF files] [Indicator for partitions] [Path to partitions]</code>. These seven parameters are explained below.</p>
 
-<!-- <p>Note: no matter whether you are running DynamicProtein on a command-line or as a GUI application, make sure that the path to the 'bin' folder of R and the 'bin' folder of python is set. 
+<!-- <p>Note: no matter whether you are running MUSEQ on a command-line or as a GUI application, make sure that the path to the 'bin' folder of R and the 'bin' folder of python is set. 
 	For Windows, this can be done by navigating to Control Panel -> System -> Environment Variables in your computer, and adding the path to R and python "bin" folders to the "path" variable.
 </p> -->
 
-<p>There are five parameters that needs to be set before running the software, which are as follows.</p>
+<p>There are seven parameters that needs to be set before running the software, which are as follows.</p>
 
 <p><strong>Distance cutoff:</strong> To make a PSN, amino acids are taken as nodes and any two amino acids that are close enough are connected by an edge. The 'distance cutoff' parameter defines the largest 3-dimensional (3D) distance (in Angstroms) between any two amino acids in a protein domain to be considered as close enough. The application currently has seven different values to choose from, i.e., 4,5,6,...,10. In the original study, the value of 6 was used.</p>
 
-<p><strong>Number of amino acids:</strong> A dynamic protein structure network (PSN) consists of two or more static PSN snapshots.
+<p><strong>Number of amino acids:</strong> A multi-layer sequential protein structure network (PSN) consists of two or more static PSN snapshots.
 			The 'number of amino acids' parameter defines the number of amino acids that are added
-		at each static protein structure network (PSN) snapshot, as the dynamic PSN is being created.
-			In more detail, given a value 'X' for the 'number of amino acids' parameter, a dynamic PSN is created as follows. Starting from the begining of a given protein sequence (i.e., the first amino acid towards the N-terminal 
-			of the protein), first X number of amino acids are converted into the first static PSN snapshot, then first 2X number of amino acids are converted into the second static PSN snapshot, then first 3X number of amino acids are converted into the thrid static PSN snapshot, and so on until all of the amino acids in the sequence are captured in the last snapshot of the corresponding dynamic PSN. In the original study, a value of 5 was used. In the application 16 different the values (5,6,7,...,20) can be used.</p>
+		at each static protein structure network (PSN) snapshot, as the multi-layer sequential is being created.
+			In more detail, given a value 'X' for the 'number of amino acids' parameter, a multi-layer sequential is created as follows. Starting from the begining of a given protein sequence (i.e., the first amino acid towards the N-terminal 
+			of the protein), first X number of amino acids are converted into the first static PSN snapshot, then first 2X number of amino acids are converted into the second static PSN snapshot, then first 3X number of amino acids are converted into the thrid static PSN snapshot, and so on until all of the amino acids in the sequence are captured in the last snapshot of the corresponding multi-layer sequential. In the original study, a value of 5 was used. In the application 16 different the values (5,6,7,...,20) can be used.</p>
 
 <p><strong>Choice of task:</strong> This parameter controls the extent of the application that the user wants to run.
 			There are three options: Mode 1, Mode 2, and Mode 3.
@@ -74,10 +74,13 @@
 
 <p><strong>Path to CIF folder:</strong> This is a path to the directory where all of the CIFs of the protein 3-dimensional structures are stored in your local computing machine. </p>
 
+<p><strong>Indicator for partitions:</strong> This takes in the value of either 0 or 1. The value of 0 indicates that the user will not provide partitions of the data in the annotation file that are required to perform 5-fold cross validation in the classification task. In this case, the software will generate its own partition set from the data in the annotation file. The value of 1 indicates that the user will provide partitions of the data in the annotation file, in order for the software to perform the 5-fold cross validation in the classification task. In this case, a user has to create the partitions in a defined format. This format can be obtained by first running the software with no external partitions, i.e., using a value of 0 for this parameter, and then looking at the output folder named "partitions". Note that this parameter is only present when a user runs the software in the commandline. For the GUI option, the value for this parameter is always set as 0.</p>
 
-<h1><a class="nav-anchor" id="secm4-1" href="#secm4-1">IV. Creating dynamic protein structure networks</a></h1><p>If you just want to create dynamic PSNs using DynamicProtein, then you may follow the following steps if your are running DynamicProtein as a GUI application.</p>
+<p><strong>Path to partitions:</strong> This is a path to the directory where the user-defined partitions are present. Note that, a value for this parameter is only needed when a user sets the value for "Indicator for partitions" as 1. If a user sets the value for "Indicator for partitions" as 0, then there is no need to provide any value for "Path to partitions".  Note that this parameter is only present when a user runs the software in the commandline. </p>
 
-<p><strong>1.</strong> Start by navigating to the base directory of this software, and running the command <code>Rscript DynaP.R</code>. This will start up the DynamicProtein application in your default browser (if the application does not show and the browser page shows something like "Unable to connect", then please refresh the webpage and the application will start running). </p>
+<h1><a class="nav-anchor" id="secm4-1" href="#secm4-1">IV. Creating multi-layer sequential protein structure networks</a></h1><p>If you just want to create multi-layer sequentials using our software, then you may follow the following steps if your are running our software as a GUI application.</p>
+
+<p><strong>1.</strong> Start by navigating to the base directory of this software, and running the command <code>Rscript DynaP.R</code>. This will start up the our software application in your default browser (if the application does not show and the browser page shows something like "Unable to connect", then please refresh the webpage and the application will start running). </p>
 
 <p><strong>2.</strong> Choose the distance cutoff and the number of amino acids.</p>
 
@@ -87,27 +90,27 @@
 
 <p><strong>5.</strong> Choose the annotation file and press the "Run program" button.</p>
 
-<p>If your are running DynamicProtein on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
-	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 1" [Path to annotation file] [Path to directory containing CIF files]</code>.</p>
-<p><strong>Example command-line run 1a:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 1" ./examples/test1.txt ./cif-directory</p>
-<p><strong>Example command-line run 1b:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 1" ./examples/test2.txt ./cif-directory</p>
+<p>If your are running our software on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
+	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 1" [Path to annotation file] [Path to directory containing CIF files] [Indicator for partitions] [Path to partitions]</code>.</p>
+<p><strong>Example command-line run 1a:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 1" ./examples/test1.txt ./cif-directory 0 </p>
+<p><strong>Example command-line run 1b:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 1" ./examples/test2.txt ./cif-directory 0 </p>
 
 
 <h1><a class="nav-anchor" id="secm5-1" href="#secm5-1">V. Computing dynamic graphlet features</a></h1>
 <p>Follow steps 1 to 2 from <a href="index.html#secm4-1">Section IV</a>. Then, select "Mode 2" in step 3, choose the annotation file, and press the "Run program" button.</p>
-<p>If your are running DynamicProtein on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
-	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 2" [Path to annotation file] [Path to directory containing CIF files]</code>.
+<p>If your are running our software on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
+	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 2" [Path to annotation file] [Path to directory containing CIF files] [Indicator for partitions] [Path to partitions]</code>.
 </p>
-<p><strong>Example command-line run 2a:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 2" ./examples/test1.txt ./cif-directory</p>
-<p><strong>Example command-line run 2b:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 2" ./examples/test2.txt ./cif-directory</p>
+<p><strong>Example command-line run 2a:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 2" ./examples/test1.txt ./cif-directory 0 </p>
+<p><strong>Example command-line run 2b:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 2" ./examples/test2.txt ./cif-directory 0 </p>
 
 <h1><a class="nav-anchor" id="secm6-1" href="#secm6-1">VI. Performing protein structral classification</a></h1>
 <p>Follow steps 1 to 2 from <a href="index.html#secm4-1">Section IV</a>. Then, select "Mode 3" in step 3, choose the annotation file, and press the "Run program" button.</p>
-<p>If your are running DynamicProtein on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
-	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 3" [Path to annotation file] [Path to directory containing CIF files]</code>.
+<p>If your are running our software on a command-line, then after you navigate to the base directory via command terminal, write the following on the command terminal: 
+	<code>Rscript scripts/cmdrun.r [Distance cutoff] [Number of amino acids] "Mode 3" [Path to annotation file] [Path to directory containing CIF files] [Indicator for partitions] [Path to partitions]</code>.
 </p>
-<p><strong>Example command-line run 3a:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 3" ./examples/test1.txt ./cif-directory</p>
-<p><strong>Example command-line run 3b:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 3" ./examples/test2.txt ./cif-directory</p>
+<p><strong>Example command-line run 3a:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 3" ./examples/test1.txt ./cif-directory 0 </p>
+<p><strong>Example command-line run 3b:</strong> Rscript ./scripts/cmdrun.r 6 5 "Mode 3" ./examples/test2.txt ./cif-directory 0 </p>
 
 <!-- 
 </p><footer><hr/><a class="next" href="funs.html"><span class="direction">Next</span><span class="title">Functions</span></a></footer> -->
