@@ -1,4 +1,4 @@
-# DynamicPSN
+# Multilayer sequential PSNs
 
 Please see documentation in docs/index.html
 
@@ -8,7 +8,7 @@ Folder structure
 
 bin/ contains the dcount binary file that is used to compute dynamic graphlet degree vector matrix
 
-docs/ contains documentation for DynaP (docs/index.html contains the main documentation file)
+docs/ contains documentation for our software (docs/index.html contains the main documentation file)
 
 examples/ contains example annotation files
 
@@ -29,4 +29,9 @@ output/dynamic-networks contains dyanmic the constructed dynamic PSNs
 output/feature-matrix contains features of dynamic PSNs based on dynamic graphlets
 
 output/Classification-results contains prediction files and performance accuracy for each of the 5 folds
+
+====
+
+This folder contains the original implementation of our software by Khalique Newaz, 2021. This folder is part of the publication "Multi-layer sequential protein structure networks improve protein structural classification", K. Newaz, J. Piland, P.L. Clark, S.J. Emrich, Jun Li, and T. Milenković (2021), under review.
+
 
