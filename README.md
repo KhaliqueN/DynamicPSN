@@ -32,6 +32,6 @@ output/Classification-results contains prediction files and performance accuracy
 
 ====
 
-This folder contains the original implementation of our software by Khalique Newaz, 2021. This folder is part of the publication "Multi-layer sequential protein structure networks improve protein structural classification", K. Newaz, J. Piland, P.L. Clark, S.J. Emrich, Jun Li, and T. Milenković (2021), under review.
+This folder contains the original implementation of our software by Khalique Newaz, 2021. This folder is part of the publication "Multi-layer sequential protein structure networks improve protein structural classification", K. Newaz, J. Piland, P.L. Clark, S.J. Emrich, Jun Li, and T. Milenković (2021), Proteins: Structure, Function, and Bioinformatics.
 
 
