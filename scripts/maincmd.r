@@ -1,17 +1,10 @@
 
 runmaincmd <- function(cutoff, naa, choice, annotationFile, pdbDirectory, partitionFlag, partitionFolder){
 
-	outputDirectory <- strsplit(basename(annotationFile),'[.]')[[1]][1]
+	outputDirectory <- 'output'#strsplit(basename(annotationFile),'[.]')[[1]][1]
 
-	# cutoff <- 6
-	# naa <- 5
-	# annotationFile <- 'datasets/cath-primary.txt'
-	# pdbDirectory <- '../project2-PDB_intra/data/PDB_CIF'
-
-	##check if there is an output folder
-	# if(dir.exists(outputDirectory)){unlink(outputDirectory, recursive=TRUE)}
-
-	if(choice == "Mode 1"){
+	#check if there is an output folder
+	if(dir.exists(outputDirectory)){unlink(outputDirectory, recursive=TRUE)}
 
 	ann <- fread(annotationFile, sep='\t', header=FALSE)
 
@@ -160,7 +153,6 @@ runmaincmd <- function(cutoff, naa, choice, annotationFile, pdbDirectory, partit
 
 	cat("\nNetwork creation done.\n")
 
-	}
 
 	if(choice == "Mode 2" | choice == "Mode 3"){
 
