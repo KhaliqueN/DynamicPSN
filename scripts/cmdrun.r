@@ -1,7 +1,7 @@
 args=commandArgs(TRUE)
 
 if (length(args) < 6) {
-  stop("#### Code should be run as 'Rscript maincmd.r [Distance cutoff] [Number of amino acids] 
+  stop("#### Code should be run as 'Rscript cmdrun.r [Distance cutoff] [Number of amino acids] 
     [Choice of task] [Path to the annotation file] [Path to the directory with all .cif files] [Partition flag] [Partition folder]'\n #### Check the program manual for more details ", call.=FALSE)
 }
 
@@ -10,6 +10,7 @@ suppressMessages(library(tools))
 suppressMessages(library(data.table))
 suppressMessages(library(stringr))
 suppressMessages(library(igraph))
+suppressMessages(library(gtools))
 
 
 source("./scripts/utils.r")

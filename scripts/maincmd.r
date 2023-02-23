@@ -1,11 +1,17 @@
 
 runmaincmd <- function(cutoff, naa, choice, annotationFile, pdbDirectory, partitionFlag, partitionFolder){
 
-	# outputDirectory <- strsplit(basename(annotationFile),'[.]')[[1]][1]
-	outputDirectory <- 'output'
+	outputDirectory <- strsplit(basename(annotationFile),'[.]')[[1]][1]
 
-	#check if there is an output folder
-	if(dir.exists(outputDirectory)){unlink(outputDirectory, recursive=TRUE)}
+	# cutoff <- 6
+	# naa <- 5
+	# annotationFile <- 'datasets/cath-primary.txt'
+	# pdbDirectory <- '../project2-PDB_intra/data/PDB_CIF'
+
+	##check if there is an output folder
+	# if(dir.exists(outputDirectory)){unlink(outputDirectory, recursive=TRUE)}
+
+	if(choice == "Mode 1"){
 
 	ann <- fread(annotationFile, sep='\t', header=FALSE)
 
@@ -154,6 +160,7 @@ runmaincmd <- function(cutoff, naa, choice, annotationFile, pdbDirectory, partit
 
 	cat("\nNetwork creation done.\n")
 
+	}
 
 	if(choice == "Mode 2" | choice == "Mode 3"){
 
@@ -164,8 +171,9 @@ runmaincmd <- function(cutoff, naa, choice, annotationFile, pdbDirectory, partit
 
 		for(k in 1:length(alldirs)){
 
-			tfiles <- list.files(alldirs[k], full.names=TRUE)
+			tfiles <- gtools::mixedsort(list.files(alldirs[k], full.names=TRUE))
 			tname <- paste(tfiles, collapse=",")
+
 			command=paste("./bin/dcount",tname,6,4,1,paste0(outgraphletDirectory,"/",basename(alldirs[k])),"-v vectorfiles/graphlets_6_4.txt -g vectorfiles/orbits_6_4.txt -d '\t' -t")
 			system(command)
 
