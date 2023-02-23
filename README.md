@@ -1,3 +1,6 @@
+## IMPORTANT!
+****If you downloaded the software before 23rd Feb. 2023, note that there was a bug in that code (briefly, the code was not taking the correct order of dynamic network snapshots for the dynamic graphlets computations). We have fixed the bug and uploaded the updated software. We suggest downloading the updated software and rerunning your analyses. Importantly, the bug did not affect the results reported in the paper, as the bug was introduced only after those results were produced, while aiming to create user-friendly version of the correct code that was used to produce the results in the paper.****
+
 # Multilayer sequential PSNs
 
 Please see documentation in docs/index.html
