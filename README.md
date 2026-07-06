@@ -1,5 +1,5 @@
 ## IMPORTANT!
-**There was a bug in previous versions of two datasets. That is, datasets "cath-2.40" and "cath-3.30.390" had a space (instead of a "+") delimiter between two or more discontinuous domains. We have updated the corresponding datasets. Importantly, the bug did not affect the results reported in the paper, as the bug was introduced only after those results were produced, while aiming to create user-friendly version of the correct data that was used to produce the results in the paper.**
+**There was a bug in previous versions of two datasets. That is, datasets "cath-2.40" and "cath-3.30.390" had a space (instead of a "+") delimiter between structural regions of a domain that are discontinuous in the sequence. We have updated the corresponding datasets. Importantly, the bug did not affect the results reported in the paper, as the bug was introduced only after those results were produced, while aiming to create user-friendly version of the correct data that was used to produce the results in the paper.**
 
 
 ## IMPORTANT!
